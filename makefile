@@ -14,3 +14,4 @@ $(EXECUTABLE): $(OBJECTS)
 
 clean:
 	rm -rf *.o prog1
+.PHONY: clean
