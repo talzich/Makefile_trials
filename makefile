@@ -11,3 +11,6 @@ $(EXECUTABLE): $(OBJECTS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) $< -o $@
+
+clean:
+	rm -rf *.o prog1
