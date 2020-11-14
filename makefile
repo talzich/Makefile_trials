@@ -1,11 +1,13 @@
 CC=gcc
 CFLAGS=-c -Wall
+SOURCES=a.c b.c
+OBJECTS=$(SOURCES:.c=.o)
+EXECUTABLE=prog1
 
-prog1: a.o b.o
-	$(CC) a.o b.o -o prog1
+all: $(SOURCES) $(EXECUTABLE)
 
-a.o: a.c a.h
-	$(CC) $(CFLAGS) a.c -o a.o
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(OBJECTS) -o $@
 
-b.o: b.c b.h
-	$(CC) $(CFLAGS) b.c -o b.o
+%.o: %.c
+	$(CC) $(CFLAGS) $< -o $@
